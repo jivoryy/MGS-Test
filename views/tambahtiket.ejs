@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./assets/css/tiket.css" />
+    <title>Halaman Tiket</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+          <div
+            class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-dark min-vh-100"
+          >
+            <img src="./assets/img/MGS-logo.png" width="170px" alt="LOGO" />
+            <ul
+              class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+              id="menu"
+            >
+              <li>
+                <a
+                  href="#submenu1"
+                  data-bs-toggle="collapse"
+                  class="nav-link px-0 pt-4 align-middle"
+                >
+                  <i class="bi bi-chevron-down"></i>
+                  <span class="ms-1 d-none d-sm-inline">Tiket</span>
+                </a>
+                <ul
+                  class="collapse show nav flex-column ms-1"
+                  id="submenu1"
+                  data-bs-parent="#menu"
+                >
+                  <li>
+                    <a href="#" class="nav-link ps-5">
+                      <span class="d-none d-sm-inline">Tiket Support</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <hr />
+          </div>
+        </div>
+        <div class="col p-0">
+          <div class="bg-dark d-flex justify-content-end">
+            <div class="dropdown py-3 pe-3">
+              <a
+                href="#"
+                class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                id="dropdownUser1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-fill"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                <li><a class="dropdown-item" href="#">Change Password</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">Log out</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- bar-atas end -->
+          <div class="tiket-support-cc">
+            <h4>Tiket Support CC</h4>
+          </div>
+          <div class="form-tambah">
+            <div class="text-tambah-tiket">
+              <h5>Ticket - Penugasan Support CC</h5>
+            </div>
+            <form action="/tambahtiket" method="post">
+              <div class="row m-2">
+                <div class="col-7">
+                  <div class="row m-1">
+                    <div class="col-4 align-self-center">
+                      <label for="nomor-laporan">No. Laporan</label>
+                    </div>
+                    <div class="col align-self-center">
+                      <input
+                        id="nomor-laporan"
+                        class="form-control"
+                        type="text"
+                        value="Generate by System"
+                        aria-label="Nomor Laporan (Read-Only)"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="row m-1">
+                    <div class="col-4 align-self-center">
+                      <label for="tanggal-laporan">Tanggal Laporan</label>
+                    </div>
+                    <div class="col align-self-center">
+                      <input
+                        id="tanggal-laporan"
+                        class="form-control"
+                        type="datetime-local"
+                        aria-label="Tanggal Laporan"
+                      />
+                    </div>
+                  </div>
+                  <div class="row m-1">
+                    <div class="col-4 align-self-center">
+                      <label for="jenis-gangguan">Jenis Gangguan</label>
+                    </div>
+                    <div class="col align-self-center">
+                      <select
+                        id="jenis-gangguan"
+                        name="type_ticket_id"
+                        class="form-select"
+                        aria-label="Pilih Jenis Gangguan"
+                      >
+                        <%data.forEach((data) => {%>
+                        <option value=<%=data.id%>> 
+                          <%=data.nama%>
+                        </option>
+                        <% }); %>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row m-1">
+                    <div class="col-4 align-self-center">
+                      <label for="sub-jenis-gangguan">Sub Jenis Gangguan</label>
+                    </div>
+                    <div class="col align-self-center">
+                      <select
+                        id="sub-jenis-gangguan"
+                        class="form-select"
+                        name="sub_type_ticket_id"
+                        aria-label="Pilih Sub-Jenis Gangguan"
+                      >
+                      <%data.forEach((data) => { data.sub_type_ticket.forEach((jenis) => {%>
+                        <option value=<%=jenis.id%>><%=jenis.nama%>
+                        </option>
+                      <%});%>
+                        
+                        <% }); %>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row m-1">
+                    <div class="col-4 align-self-center">
+                      <label for="permasalahan">Permasalahan</label>
+                    </div>
+                    <div class="col align-self-center">
+                      <input
+                        id="permasalahan"
+                        name="permasalahan"
+                        class="form-control"
+                        type="text"
+                        aria-label="Permasalahan" 
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="my-4 mx-3">
+                    <button type="submit" class="btn btn-success">
+                      Simpan
+                    </button>
+                    <a href="/tiket">
+                      <button class="btn btn-light">Batal</button>
+                    </a>
+                  </div>
+                </div>
+                <div class="col"></div>
+              </div>
+            </form>
+          </div>
+          <!-- content end -->
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap JavaScript -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

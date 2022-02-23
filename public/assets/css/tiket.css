@@ -2,6 +2,10 @@
   color: black;
 }
 
+.nav-link:visited {
+  color: black;
+}
+
 .nav-link:hover {
   color: red;
 }
@@ -11,4 +15,19 @@
   margin: 2em;
   padding: 0.8em;
   background-color: #eee;
+}
+
+.tombol-tambah {
+  text-align: right;
+  margin: 0 2em;
+}
+
+.form-tambah {
+  border: 3px solid #aaa;
+  margin: 0 2em;
+}
+
+.text-tambah-tiket {
+  padding: 1em 1em;
+  background-color: #aaa;
 }

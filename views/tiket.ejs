@@ -21,7 +21,7 @@
   <body>
     <div class="container-fluid">
       <div class="row flex-nowrap">
-        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 pt-4 bg-light">
           <div
             class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-dark min-vh-100"
           >
@@ -80,7 +80,41 @@
           <div class="tiket-support-cc">
             <h4>Tiket Support CC</h4>
           </div>
-
+          <div class="tombol-tambah">
+            <a href="/tambahtiket">
+              <button class="btn btn-primary">
+                <i class="bi bi-plus-circle" style="margin-right: 0.4em"></i>Add
+              </button>
+            </a>
+          </div>
+          <div class="mx-5 mt-3">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">No. Laporan</th>
+                  <th scope="col">Jenis</th>
+                  <th scope="col">Sub Jenis</th>
+                  <th scope="col">Petugas</th>
+                  <th scope="col">Permasalahan</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%data.forEach((tiket, index) => {%>
+                <tr>
+                  <td><%= index+1 %></td>
+                  <td><%= tiket.no_lap %></td>
+                  <td><%= tiket.type_ticket.nama %></td>
+                  <td><%= tiket.sub_type_ticket.nama %></td>
+                  <td><%= tiket.petugas.nama %></td>
+                  <td><%= tiket.permasalahan %></td>
+                  <td><%= tiket.status.nama %></td>
+                </tr>
+                <%}) %>
+              </tbody>
+            </table>
+          </div>
           <!-- content end -->
         </div>
       </div>
