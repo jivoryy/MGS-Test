@@ -1,6 +1,6 @@
 ### Berikut adalah tes untuk PT. Mega Giga Solusindo.
 
-### Project ini dibuat menggunakan Express dan Axios.
+### Project ini dibuat menggunakan Express, ejs, dan Axios.
 
 ### CSS dibuat menggunakan framework Bootstrap 5.
 
