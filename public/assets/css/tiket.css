@@ -1,0 +1,14 @@
+.nav-link {
+  color: black;
+}
+
+.nav-link:hover {
+  color: red;
+}
+
+.tiket-support-cc {
+  color: #777;
+  margin: 2em;
+  padding: 0.8em;
+  background-color: #eee;
+}
